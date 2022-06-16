@@ -1,0 +1,138 @@
+import java.util.Scanner;
+
+public class Person {
+	
+	private String name;
+	private int age;
+	private int pinCode;
+	
+	public Person(String name,int age,int pinCode) {
+		this.name = name;
+		this.age = age;
+		this.pinCode = pinCode;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public int getPincode() {
+		return this.pinCode;
+	}
+	
+	public String getDisplay() {
+		return "The name is "+this.name + " Age : "+this.age + " and stays at "+this.pinCode;
+	}
+	
+	
+		
+public static void main(String[] args  ) {
+	
+	Scanner sc = new Scanner(System.in);
+	
+	
+	Person[] arr = new Person[6];
+	
+	arr[0] = new Person("TR",24,400008);
+	
+	arr[1] = new Person("XYZ", 22, 400007);
+	
+	arr[2] = new Person("UIOP", 28, 400015);
+	
+	arr[3] = new Person("TREE", 20, 400078);
+	
+	arr[4] = new Person("PLANT", 30, 400010);
+	
+	arr[5] = new Person("FRUIT", 35, 400019);
+	
+	for(int i = 0;i<arr.length - 1;i++) {
+		
+		for(int j = 0;j<arr.length - i -1;j++) {
+			
+			if(arr[j].getAge() > arr[j+1].getAge()) {
+				
+				Person temp = arr[j+1];
+				
+				arr[j+1] = arr[j];
+				
+				arr[j] = temp;
+				
+				
+			}
+		}
+	}
+	
+	
+	for (Person Person : arr) {
+		System.out.println(Person.getDisplay());
+	}
+	
+	int ageToFind = sc.nextInt();
+	
+	binarySearch(arr,0,arr.length-1,ageToFind);
+	
+	int index = binarySearchWithRecursion(arr,0,arr.length-1,ageToFind);
+	
+	System.out.println("The age "+ageToFind+" to find is present at index "+index);
+}
+
+private static int binarySearchWithRecursion(Person[] arr, int i, int j, int ageToFind) {
+	
+	if(i <= j) {
+		
+	int mid = (i+j)/2;
+	
+	if(arr[mid].getAge() == ageToFind) {
+		
+		return mid;
+	}
+	
+	if(arr[mid].getAge() < ageToFind) {
+		
+		return binarySearchWithRecursion(arr, mid+1, j, ageToFind);
+	}
+	
+	if(arr[mid].getAge() > ageToFind) {
+		 
+		return binarySearchWithRecursion(arr, i, mid-1, ageToFind);
+	}
+	}
+	
+	return -1;
+	
+}
+
+private static void binarySearch(Person[] arr, int first, int last, int ageToFind) {
+	
+	int mid = ((first + last)/2);
+	
+	
+	while(first <= last) {
+		
+		if(arr[mid].getAge() < ageToFind) {
+			
+			first = mid + 1;
+		}
+		else if(arr[mid].getAge() == ageToFind) {
+			
+			System.out.println("element found at "+mid);
+			
+			break;
+		}
+		else {
+			last = mid - 1;
+		}
+		
+		mid = (first+last)/2;
+	}
+	
+	if(first > last) {
+		System.out.println("Element not found");
+	}
+	
+}
+}
