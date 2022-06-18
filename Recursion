@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Recursion {
+	
+	static int fact = 1;
+	static int a = 0;
+	static int b = 1;
+	static int fibonacci;
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Add number whose factorial need to be find : ");
+		
+		int n = sc.nextInt();
+		
+		
+		
+		for(int i = 1; i <= n; i++) {
+			
+			fact = fact * i;
+		}
+		
+		System.out.println("Using Iteration method: "+n+"! is "+fact);
+		
+		System.out.println("Using Recursion method: "+n+"! is "+factorial(n));
+		
+		System.out.print("Fibonacci series upto nth place :");
+		
+		int m = sc.nextInt();
+		
+		
+		System.out.print(a+" ");
+		System.out.print(b+" ");
+		
+		while(m >= 2) {
+			
+			fibonacci = a+b;
+			System.out.print(fibonacci+" ");
+			a = b;
+			b = fibonacci;
+			m--;
+			
+		}
+		
+		System.out.println("\nPrint fibonacci number at nth place : ");
+		
+		System.out.println(fibonacci(sc.nextInt()));
+
+	}
+
+	public static int fibonacci(int i) {
+		// TODO Auto-generated method stub
+		if(i == 0) {
+			return 0;
+		}
+		if(i == 1 || i == 2) {
+			return 1;
+		}
+	
+		return fibonacci(i-1)+ fibonacci(i-2);
+		
+	}
+
+	public static int factorial(int i) {
+		// TODO Auto-generated method stub
+		
+			if(i == 0) {
+				return 1;
+			}
+			
+			return i * factorial(i-1);
+			
+		}
+	}
+	
+	
+	
+	
+
+
