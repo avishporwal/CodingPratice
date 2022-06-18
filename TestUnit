@@ -1,0 +1,16 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class TestUnit {
+
+	@Test
+	public void testRecursion() {
+		
+		assertEquals(120, Recursion.factorial(5));
+		
+		assertEquals(55, Recursion.fibonacci(10));
+
+	}
+
+}
