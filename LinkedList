@@ -40,6 +40,10 @@ public class LinkedList {
 		head = node;
 	}
 	
+	public void deleteHead() {
+		head = head.next;
+	}
+	
 	public void displayLinkedlist() {
 		
 		Node temp = head;
@@ -67,6 +71,14 @@ public class LinkedList {
 		
 		linkedList.insert(new Node("MNO", 40, 4009));
 		
+		
+		linkedList.displayLinkedlist();
+		
+		linkedList.deleteHead();
+		
+		linkedList.displayLinkedlist();
+		
+		linkedList.insert(new Node("ABC", 22, 4001));
 		
 		linkedList.displayLinkedlist();
 		
