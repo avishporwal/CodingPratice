@@ -1,0 +1,96 @@
+
+
+public class LinkedList {
+	
+	Node head;
+	
+	static class Node{
+		
+		private String name;
+		private int age;
+		private int pinCode;
+		Node next;
+		
+		public Node(String name,int age,int pinCode) {
+			this.name = name;
+			this.age = age;
+			this.pinCode = pinCode;
+			next = null;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getAge() {
+			return this.age;
+		}
+		
+		public int getPincode() {
+			return this.pinCode;
+		}
+		
+		public String getDisplay() {
+			return "The name is "+this.name + " Age : "+this.age + " and stays at "+this.pinCode;
+		}
+	}
+	
+	public void insert(Node node) {
+		node.next = head;
+		head = node;
+	}
+	
+	public void displayLinkedlist() {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			System.out.print(temp.getDisplay() + " --> ");
+			temp = temp.next;
+		}
+		System.out.println("null");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		LinkedList linkedList = new LinkedList();
+		
+		linkedList.insert(new Node("ABC", 22, 4001));
+		
+		
+		linkedList.insert(new Node("DEF", 24, 4002));
+		
+		linkedList.insert(new Node("GHI", 28, 4003));
+		
+		linkedList.insert(new Node("JKL",25,4004));
+		
+		linkedList.insert(new Node("MNO", 40, 4009));
+		
+		
+		linkedList.displayLinkedlist();
+		
+		Node pointer1 = linkedList.head;
+		Node pointer2 = linkedList.head;
+		
+		
+		
+		while(pointer1.next != null && pointer1.next.next != null ) {
+			
+			
+			
+			pointer1 = pointer1.next.next;
+			
+			pointer2 = pointer2.next;
+			
+			
+			
+			}
+		
+	
+				
+		System.out.println("The middle of LinkedList is \n"+pointer2.getDisplay());
+	}
+	}
+
+
