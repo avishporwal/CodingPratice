@@ -1,0 +1,47 @@
+public class CircularLinkedlist implements LL {
+	
+	private Node head;
+	private Node tail;
+	
+	public void insert(Node node) {
+		if(head == null) {
+			head = node;
+			tail = node;
+		}
+		tail.next = node;
+		node.next = head;
+		tail = node;
+	}
+	
+	public void displayLinkedlist() {
+		
+		Node temp = head;
+		if(temp!=null) {
+			do {
+			System.out.print(temp.getDisplay() + " --> ");
+			temp = temp.next;
+			}while(temp != head);
+		}
+	}
+	
+
+	public static void main(String[] args) {
+		
+		CircularLinkedlist ll = new CircularLinkedlist();
+		
+		ll.insert(new Node("ABC", 22, 4001));
+
+		ll.insert(new Node("DEF", 24, 4002));
+		
+		ll.insert(new Node("GHI", 28, 4003));
+		
+		ll.insert(new Node("JKL",25,4004));
+		
+		ll.insert(new Node("MNO", 40, 4009));
+		
+		ll.displayLinkedlist();
+
+
+	}
+
+}
