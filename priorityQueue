@@ -2,14 +2,14 @@
 
 public class PriorityQueue  {
 	
-	static class Node{
+	class Node{
 		String data;
 		int priority;
 		Node next;
 	}
 	
 	
-	static Node newNode(String d, int p) {
+	public Node newNode(String d, int p) {
 		Node temp = new Node();
 		temp.data = d;
 		temp.priority = p;
@@ -18,16 +18,16 @@ public class PriorityQueue  {
 		
 	}
 	
-	static String peek(Node head) {
+	public String peek(Node head) {
 		return head.data;
 	}
 	
-	static Node pop(Node head) {
+	public Node pop(Node head) {
 		head = head.next;
 		return head;
 	}
 	
-	static Node push(Node head, String d, int p) {
+	public Node push(Node head, String d, int p) {
 		Node start = head;		
 		Node temp = newNode(d,p);		
 		if(start.priority < p) {			
@@ -44,21 +44,23 @@ public class PriorityQueue  {
 		return head;
 	}
 	
-	static int isEmpty(Node head) {
+	public int isEmpty(Node head) {
 		return head == null ? 1:0;
 	}
 
 	public static void main(String[] args) {
 		
-		Node priorityQueue = newNode("love",5);   
-		priorityQueue = push(priorityQueue,"!",0);
-		priorityQueue = push(priorityQueue,"my",1);
-		priorityQueue = push(priorityQueue,"I",8);
-		priorityQueue = push(priorityQueue,"country",1);
+		PriorityQueue prioQueue = new PriorityQueue();
 		
-		while(isEmpty(priorityQueue)==0) {
-			System.out.println(peek(priorityQueue));
-			priorityQueue = pop(priorityQueue);
+		Node priorityQueue = prioQueue.newNode("love",5);   
+		priorityQueue = prioQueue.push(priorityQueue,"!",0);
+		priorityQueue = prioQueue.push(priorityQueue,"my",1);
+		priorityQueue = prioQueue.push(priorityQueue,"I",8);
+		priorityQueue = prioQueue.push(priorityQueue,"country",1);
+		
+		while(prioQueue.isEmpty(priorityQueue)==0) {
+			System.out.println(prioQueue.peek(priorityQueue));
+			priorityQueue = prioQueue.pop(priorityQueue);
 		}
 		
 
