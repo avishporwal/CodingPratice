@@ -1,17 +1,17 @@
 package PriorityQueue;
 
 
-public class PriorityMethods {
+public class PriorityMethods<T> {
 
 	public Node head;
 	
 	class Node{
-		String data;
+		T data;
 		int priority;
 		Node next;
 	}
 	
-	public Node newNode(String d, int p) {
+	public Node newNode(T d, int p) {
 		Node temp = new Node();
 		temp.data = d;
 		temp.priority = p;
@@ -31,7 +31,7 @@ public class PriorityMethods {
 	}
 	
 
-	public void offer(String d, int p) {
+	public void offer(T d, int p) {
 
 		if(head == null) {
 			Node node = newNode(d, p);

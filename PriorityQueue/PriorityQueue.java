@@ -1,7 +1,7 @@
 package PriorityQueue;
 
 
-public class PriorityQueue extends PriorityMethods {
+public class PriorityQueue extends PriorityMethods<Object> {
 
 	public static void main(String[] args) {
 		
@@ -9,13 +9,13 @@ public class PriorityQueue extends PriorityMethods {
 		
 		pq.offer("Software Engineering",0);   
 
-		pq.offer("World",1);
+		pq.offer(45,1);
 	
 		pq.offer("Welcome",0);
 		
-		pq.offer("to",1);
+		pq.offer(74.6,1);
 		
-		pq.offer("Here",2);
+		pq.offer('t',2);
 		
 		pq.offer("!", 1);
 		
@@ -26,6 +26,7 @@ public class PriorityQueue extends PriorityMethods {
 		pq.take();
 		pq.take();
 		pq.take();
+		
 		
 		
 		
